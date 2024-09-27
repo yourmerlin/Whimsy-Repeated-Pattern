@@ -1,0 +1,138 @@
+let bgsize = 10;
+function setup() {
+    createCanvas(400, 400);
+
+}
+
+function draw() {
+   //background 
+    for (let r = -10; r <= height / bgsize; r++) {
+        for (let g = -10; g <= width / bgsize; g++) {
+        noStroke(); 
+        fill(r * 500 / (height / bgsize) , g * 0 / (width / bgsize), 200);
+        square(g * bgsize + bgsize / 2, r * bgsize + bgsize / 2, bgsize);
+        }
+    }
+
+    //stars galaxy
+
+    for (let row = 0; row < 5; row++){
+        for(let col = 0; col <5; col++){
+            starGalaxy(row*100,col*100)
+        }
+    }
+
+    //milkyway 
+
+    for (let row2 = -50; row2 <5; row2++){
+        for(let col2 = -50; col2 <5; col2++){
+            milkyway(row2*100,col2*100);
+        }
+    }
+    for (let row3 = -50; row3 <5; row3++){
+        for (let col3 = -50; col3 <5; col3++){
+            randomStars(row3*100,col3*50);
+        }
+    }
+    noLoop();
+}
+
+function starGalaxy(x,y){
+    push();
+    translate(x,y);
+    fill(255,223,131); //yellow circles
+    noStroke();
+    circle(50,50,50);
+    circle(75,75,25);
+    circle(25,25,5);
+    ellipse(25,25,5,20);
+    ellipse(25,25,20,5);
+    push();
+    translate(25,70);
+    circle(25,25,5);
+    ellipse(25,25,5,20);
+    ellipse(25,25,20,5);
+    pop();
+
+    //
+    fill(240,53,215,100); // magenta circles
+    noStroke();
+    circle(25,25,50);
+    circle(75,25,50);
+    circle(75,75,50);
+    circle(25,75,50);
+    // 
+    circle(62.5,62.5,25);
+    circle(87.5,62.5,25);
+    circle(62.5,87.5,25);
+    circle(87.5,87.5,25);
+    //
+    fill(0,0,0,0); // yellow circles (outline)
+    stroke('yellow');
+    strokeWeight(.5);
+    circle(50,75,75);
+    circle(75,50,25);
+    circle(25,50,50);
+    //
+    pop();
+
+}
+function milkyway(x,y){
+    push();
+    translate(x,y);
+    fill('white');
+    noStroke();
+    circle(100,100,10);
+    rect(103,103,20,5);
+    rect(123,85,3,20);
+    rect(93,83,30,3);
+    rect(110,90,10,10);
+    rect(90,85,5,10);
+    rect(85,95,5,10);
+    rect(90,105,5,10);
+    rect(95,115,35,3);
+    rect(130,80,3,35);
+    rect(110,77,20,3);
+    rect(100,74,10,3);
+    rect(85,77,15,3);
+    rect(82,80,3,10);
+    rect(79,88,3,20);
+    rect(82,108,5,3);
+    fill(255,255,255,0);
+    stroke(255,255,255);
+    circle(100,100,25);
+    circle(100,100,12.5);
+    circle(100,100,18.75);
+    // second star 
+    push();
+    translate(43,75);
+    fill('white');
+    noStroke();
+    circle(25,25,5);
+    ellipse(25,25,5,20);
+    ellipse(25,25,20,5);
+    pop();
+    // second star
+    push();
+    translate(100,40);
+    fill('white');
+    noStroke();
+    circle(25,25,5);
+    ellipse(25,25,5,20);
+    ellipse(25,25,20,5);
+    pop();
+    //
+    pop();
+}
+
+function randomStars(x,y){
+    push();
+    translate(x,y);
+    textSize(25);
+    textAlign(CENTER);
+    text('✷',100,60);
+    pop();
+
+
+}
+ 
